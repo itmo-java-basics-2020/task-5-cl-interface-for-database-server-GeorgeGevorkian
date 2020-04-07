@@ -3,7 +3,7 @@ package ru.andrey.kvstorage.console.commands;
 import ru.andrey.kvstorage.console.DatabaseCommand;
 import ru.andrey.kvstorage.console.DatabaseCommandResult;
 import ru.andrey.kvstorage.console.ExecutionEnvironment;
-import ru.andrey.kvstorage.logic.DatabaseImpl;
+import ru.andrey.kvstorage.logic.DatabaseSuc;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,7 +27,7 @@ public final class CreateDatabaseCommand implements DatabaseCommand {
             } else {
                 Files.createFile(path);
             }
-            environment.addDatabase(new DatabaseImpl(databaseName));
+            environment.addDatabase(new DatabaseSuc(databaseName));
         } catch (IOException e) {
             return DatabaseCommandResult.error(e.getMessage());
         }

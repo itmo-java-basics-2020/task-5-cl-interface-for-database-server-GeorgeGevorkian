@@ -14,13 +14,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 
-public final class DatabaseImpl implements Database {
+public final class DatabaseSuc implements Database {
     private final static char SEPARATOR = '|';
 
     private final Map<String, TableBounds> tables;
     private final Path path;
 
-    public DatabaseImpl(String name) throws IOException {
+    public DatabaseSuc(String name) throws IOException {
         this.path = Paths.get(name);
         this.tables = new HashMap<>();
 

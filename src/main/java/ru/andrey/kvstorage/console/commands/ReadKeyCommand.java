@@ -4,7 +4,7 @@ import ru.andrey.kvstorage.console.DatabaseCommand;
 import ru.andrey.kvstorage.console.DatabaseCommandResult;
 import ru.andrey.kvstorage.console.ExecutionEnvironment;
 import ru.andrey.kvstorage.exception.DatabaseException;
-import ru.andrey.kvstorage.logic.DatabaseImpl;
+import ru.andrey.kvstorage.logic.DatabaseSuc;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,6 +29,7 @@ public final class ReadKeyCommand implements DatabaseCommand {
         this.objectKey = objectKey;
     }
 
+
     @Override
     public DatabaseCommandResult execute() {
         var database = environment.getDatabase(databaseName);
@@ -36,7 +37,7 @@ public final class ReadKeyCommand implements DatabaseCommand {
             var path = Paths.get(databaseName);
             try {
                 if (Files.exists(path)) {
-                    database = Optional.of(new DatabaseImpl(databaseName));
+                    database = Optional.of(new DatabaseSuc(databaseName));
                     environment.addDatabase(database.get());
                 }
             } catch (IOException e) {
